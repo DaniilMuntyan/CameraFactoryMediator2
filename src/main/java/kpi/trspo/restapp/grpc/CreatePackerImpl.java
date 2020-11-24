@@ -1,0 +1,29 @@
+package kpi.trspo.restapp.grpc;
+
+import io.grpc.stub.StreamObserver;
+import kpi.trspo.restapp.*;
+import kpi.trspo.restapp.converters.CalibratorConverter;
+import kpi.trspo.restapp.converters.PackerConverter;
+import kpi.trspo.restapp.dto.calibrating.CalibratorDTO;
+import kpi.trspo.restapp.dto.machine.MachineDTO;
+import kpi.trspo.restapp.entities.machines.Packer;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
+
+public final class CreatePackerImpl extends CreatePackersServiceGrpc.CreatePackersServiceImplBase {
+    @Override
+    public void createPackers(CreatePackerRequest request, StreamObserver<CreatePackerResponse> responseObserver) {
+        MachineDTO machineDTO = new MachineDTO(request.getName());
+        HttpEntity<MachineDTO> packer = new HttpEntity<>(machineDTO);
+        ResponseEntity<Packer> packerResponseEntity = GlobalVariables.restTemplate
+                .postForEntity(EndPoints.FINAL_STAGE_PACKERS, packer, Packer.class);
+
+        PackerGrpc packerGrpc = PackerConverter.convert(packerResponseEntity.getBody());
+        CreatePackerResponse createPackerResponse = CreatePackerResponse.newBuilder()
+                .setPacker(packerGrpc)
+                .build();
+
+        responseObserver.onNext(createPackerResponse);
+        responseObserver.onCompleted();
+    }
+}
