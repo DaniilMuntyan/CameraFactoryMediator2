@@ -19,7 +19,7 @@ import java.util.UUID;
 @Service
 public final class AssembleCameraLensImpl extends AssembleLensServiceGrpc.AssembleLensServiceImplBase {
     @Override
-    public void assembleBack(AssembleLensRequest request, StreamObserver<AssembleLensResponse> responseObserver) {
+    public void assembleLens(AssembleLensRequest request, StreamObserver<AssembleLensResponse> responseObserver) {
         AssembleLensDTO assembleLensDTO = new AssembleLensDTO(UUID.fromString(request.getCollectorId().getValue()),
                 request.getFocalLength(), LensType.valueOf(request.getLensType().name()));
         HttpEntity<AssembleLensDTO> assembleLens = new HttpEntity<>(assembleLensDTO);

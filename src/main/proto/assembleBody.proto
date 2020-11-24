@@ -17,5 +17,5 @@ message AssembleBodyResponse {
 }
 
 service AssembleBodyService {
-  rpc assembleBack(AssembleBodyRequest) returns (AssembleBodyResponse);
+  rpc assembleBody(AssembleBodyRequest) returns (AssembleBodyResponse);
 }

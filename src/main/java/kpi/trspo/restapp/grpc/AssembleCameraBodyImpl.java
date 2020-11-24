@@ -20,13 +20,14 @@ import java.util.UUID;
 @Service
 public final class AssembleCameraBodyImpl extends AssembleBodyServiceGrpc.AssembleBodyServiceImplBase {
     @Override
-    public void assembleBack(AssembleBodyRequest request, StreamObserver<AssembleBodyResponse> responseObserver) {
+    public void assembleBody(AssembleBodyRequest request, StreamObserver<AssembleBodyResponse> responseObserver) {
         Dimensions dimensions = new Dimensions(request.getDimensions());
         AssembleBodyDTO assembleBodyDTO = new AssembleBodyDTO(UUID.fromString(request.getCollectorId().getValue()),
                 dimensions, request.getColor());
+
         HttpEntity<AssembleBodyDTO> assembleBody = new HttpEntity<>(assembleBodyDTO);
         ResponseEntity<CameraBody> assembleBodyResponseEntity = GlobalVariables.restTemplate
-                .postForEntity(EndPoints.ASSEMBLING_BACK, assembleBody, CameraBody.class);
+                .postForEntity(EndPoints.ASSEMBLING_BODY, assembleBody, CameraBody.class);
 
         CameraBody cameraBody = assembleBodyResponseEntity.getBody();
         CameraBodyGrpc cameraBodyGrpc = CameraBodyConverter.convert(cameraBody);

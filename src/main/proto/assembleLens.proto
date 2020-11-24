@@ -9,7 +9,7 @@ package kpi.trspo.restapp;
 message AssembleLensRequest {
   MyUuid collectorId = 1;
   int32 focalLength = 2;
-  LensType lensType = 4;
+  LensType lensType = 3;
 }
 
 message AssembleLensResponse {
@@ -17,5 +17,5 @@ message AssembleLensResponse {
 }
 
 service AssembleLensService {
-  rpc assembleBack(AssembleLensRequest) returns (AssembleLensResponse);
+  rpc assembleLens(AssembleLensRequest) returns (AssembleLensResponse);
 }

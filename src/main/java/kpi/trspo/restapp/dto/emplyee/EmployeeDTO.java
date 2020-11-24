@@ -1,17 +1,18 @@
 package kpi.trspo.restapp.dto.emplyee;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 public final class EmployeeDTO {
-    //private UUID id;
+    private UUID id;
+    @NonNull
     private String name;
+    @NonNull
     private String surname;
+    @NonNull
     private String phone;
 }
