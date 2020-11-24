@@ -7,9 +7,13 @@ import kpi.trspo.restapp.converters.TechnicianConverter;
 import kpi.trspo.restapp.dto.emplyee.EmployeeDTO;
 import kpi.trspo.restapp.entities.employees.Manager;
 import kpi.trspo.restapp.entities.employees.Technician;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
+@GRpcService
+@Service
 public final class CreateTechnicianImpl extends CreateTechnicianServiceGrpc.CreateTechnicianServiceImplBase {
     @Override
     public void createTechnician(CreateTechnicianRequest request, StreamObserver<CreateTechnicianResponse> responseObserver) {

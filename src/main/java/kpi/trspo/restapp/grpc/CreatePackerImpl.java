@@ -7,9 +7,13 @@ import kpi.trspo.restapp.converters.PackerConverter;
 import kpi.trspo.restapp.dto.calibrating.CalibratorDTO;
 import kpi.trspo.restapp.dto.machine.MachineDTO;
 import kpi.trspo.restapp.entities.machines.Packer;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
+@GRpcService
+@Service
 public final class CreatePackerImpl extends CreatePackersServiceGrpc.CreatePackersServiceImplBase {
     @Override
     public void createPackers(CreatePackerRequest request, StreamObserver<CreatePackerResponse> responseObserver) {

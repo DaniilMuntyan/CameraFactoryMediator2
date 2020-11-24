@@ -9,11 +9,15 @@ import kpi.trspo.restapp.dto.assembling.AssembleBodyDTO;
 import kpi.trspo.restapp.entities.camera.CameraBack;
 import kpi.trspo.restapp.entities.camera.CameraBody;
 import kpi.trspo.restapp.entities.camera.Dimensions;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@GRpcService
+@Service
 public final class AssembleCameraBodyImpl extends AssembleBodyServiceGrpc.AssembleBodyServiceImplBase {
     @Override
     public void assembleBack(AssembleBodyRequest request, StreamObserver<AssembleBodyResponse> responseObserver) {

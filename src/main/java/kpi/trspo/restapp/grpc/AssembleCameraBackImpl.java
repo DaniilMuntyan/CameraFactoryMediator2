@@ -7,11 +7,15 @@ import kpi.trspo.restapp.converters.CameraBackConverter;
 import kpi.trspo.restapp.entities.camera.Dimensions;
 import kpi.trspo.restapp.dto.assembling.AssembleBackDTO;
 import kpi.trspo.restapp.entities.camera.CameraBack;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@GRpcService
+@Service
 public final class AssembleCameraBackImpl extends AssembleBackServiceGrpc.AssembleBackServiceImplBase {
     @Override
     public void assembleBack(AssembleBackRequest request, StreamObserver<AssembleBackResponse> responseObserver) {

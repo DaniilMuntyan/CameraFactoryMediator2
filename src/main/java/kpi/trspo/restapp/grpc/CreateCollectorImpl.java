@@ -8,9 +8,13 @@ import kpi.trspo.restapp.dto.calibrating.CalibratorDTO;
 import kpi.trspo.restapp.dto.emplyee.EmployeeDTO;
 import kpi.trspo.restapp.entities.employees.Collector;
 import kpi.trspo.restapp.entities.machines.Calibrator;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
+@GRpcService
+@Service
 public final class CreateCollectorImpl extends CreateCollectorsServiceGrpc.CreateCollectorsServiceImplBase {
 
     @Override

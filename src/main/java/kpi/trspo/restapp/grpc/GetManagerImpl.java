@@ -5,13 +5,17 @@ import kpi.trspo.restapp.*;
 import kpi.trspo.restapp.converters.CalibratorConverter;
 import kpi.trspo.restapp.converters.ManagerConverter;
 import kpi.trspo.restapp.entities.employees.Manager;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@GRpcService
+@Service
 public final class GetManagerImpl extends GetManagersServiceGrpc.GetManagersServiceImplBase {
     @Override
     public void getManagers(GetManagersRequest request, StreamObserver<GetManagersResponse> responseObserver) {

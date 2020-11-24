@@ -6,9 +6,13 @@ import kpi.trspo.restapp.converters.CalibratorConverter;
 import kpi.trspo.restapp.converters.ManagerConverter;
 import kpi.trspo.restapp.dto.emplyee.EmployeeDTO;
 import kpi.trspo.restapp.entities.employees.Manager;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
+@GRpcService
+@Service
 public final class CreateManagerImpl extends CreateManagerServiceGrpc.CreateManagerServiceImplBase {
     @Override
     public void createManager(CreateManagerRequest request, StreamObserver<CreateManagerResponse> responseObserver) {

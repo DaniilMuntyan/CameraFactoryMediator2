@@ -5,11 +5,15 @@ import kpi.trspo.restapp.*;
 import kpi.trspo.restapp.converters.CameraConverter;
 import kpi.trspo.restapp.dto.final_stage.FinalCheckDTO;
 import kpi.trspo.restapp.entities.camera.Camera;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@GRpcService
+@Service
 public final class FinalStageImpl extends FinalStageServiceGrpc.FinalStageServiceImplBase {
     @Override
     public void finalStage(FinalStageRequest request, StreamObserver<FinalStageResponse> responseObserver) {

@@ -5,9 +5,13 @@ import kpi.trspo.restapp.*;
 import kpi.trspo.restapp.converters.CalibratorConverter;
 import kpi.trspo.restapp.dto.calibrating.CalibratorDTO;
 import kpi.trspo.restapp.entities.machines.Calibrator;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
+@GRpcService
+@Service
 public final class CreateCalibratorImpl extends CreateCalibratorsServiceGrpc.CreateCalibratorsServiceImplBase {
     @Override
     public void createCalibrator(CreateCalibratorRequest request, StreamObserver<CreateCalibratorResponse> responseObserver) {

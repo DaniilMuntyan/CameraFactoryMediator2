@@ -6,13 +6,17 @@ import kpi.trspo.restapp.converters.ManagerConverter;
 import kpi.trspo.restapp.converters.TechnicianConverter;
 import kpi.trspo.restapp.entities.employees.Manager;
 import kpi.trspo.restapp.entities.employees.Technician;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@GRpcService
+@Service
 public final class GetTechnicianImpl extends GetTechniciansServiceGrpc.GetTechniciansServiceImplBase {
     @Override
     public void getTechnicians(GetTechniciansRequest request, StreamObserver<GetTechniciansResponse> responseObserver) {

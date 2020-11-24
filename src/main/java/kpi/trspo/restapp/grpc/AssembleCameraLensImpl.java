@@ -8,11 +8,15 @@ import kpi.trspo.restapp.dto.assembling.AssembleLensDTO;
 import kpi.trspo.restapp.entities.camera.CameraBody;
 import kpi.trspo.restapp.entities.camera.CameraLens;
 import kpi.trspo.restapp.entities.camera.LensType;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@GRpcService
+@Service
 public final class AssembleCameraLensImpl extends AssembleLensServiceGrpc.AssembleLensServiceImplBase {
     @Override
     public void assembleBack(AssembleLensRequest request, StreamObserver<AssembleLensResponse> responseObserver) {

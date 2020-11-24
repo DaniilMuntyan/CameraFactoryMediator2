@@ -6,13 +6,17 @@ import kpi.trspo.restapp.converters.CalibratorConverter;
 import kpi.trspo.restapp.converters.PackerConverter;
 import kpi.trspo.restapp.entities.machines.Calibrator;
 import kpi.trspo.restapp.entities.machines.Packer;
+import org.lognet.springboot.grpc.GRpcService;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@GRpcService
+@Service
 public final class GetPackerImpl extends GetPackersServiceGrpc.GetPackersServiceImplBase {
     @Override
     public void getAllPackers(GetAllPackersRequest request, StreamObserver<GetAllPackersResponse> responseObserver) {
