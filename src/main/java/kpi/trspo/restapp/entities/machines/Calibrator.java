@@ -1,17 +1,16 @@
 package kpi.trspo.restapp.entities.machines;
 
 import kpi.trspo.restapp.CalibratorGrpc;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
 @Data
-@AllArgsConstructor
+@RequiredArgsConstructor
+@NoArgsConstructor
 public final class Calibrator {
     private UUID id;
+    @NonNull
     private String name;
 
     public Calibrator(CalibratorGrpc calibratorGrpc) {

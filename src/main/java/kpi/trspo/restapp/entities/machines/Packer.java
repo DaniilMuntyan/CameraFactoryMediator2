@@ -4,17 +4,16 @@ import kpi.trspo.restapp.CalibratorGrpc;
 import kpi.trspo.restapp.MyUuid;
 import kpi.trspo.restapp.PackerGrpc;
 import kpi.trspo.restapp.entities.camera.Camera;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+@RequiredArgsConstructor
 public final class Packer {
     private UUID id;
+    @NonNull
     private String name;
 
     public Packer(PackerGrpc packerGrpc) {

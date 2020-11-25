@@ -12,22 +12,24 @@ import lombok.RequiredArgsConstructor;
 import java.util.UUID;
 
 @Data
-@RequiredArgsConstructor
 @NoArgsConstructor
 public final class Camera {
     private UUID camera_id;
-    private String innerInfo;
+    private String innerInfo = "";
     private Boolean isPacked = false;
     private Boolean isFirmware = false;
     private Boolean isWipedClean = false;
     private Boolean isRejected = false;
 
-    @NonNull
     private CameraBack cameraBack;
-    @NonNull
     private CameraBody cameraBody;
-    @NonNull
     private CameraLens cameraLens;
+
+    public Camera(CameraBack cameraBack, CameraBody cameraBody, CameraLens cameraLens) {
+        this.cameraBack = cameraBack;
+        this.cameraBody = cameraBody;
+        this.cameraLens = cameraLens;
+    }
 
     public Camera(CameraGrpc cameraGrpc) {
         this.camera_id = UUID.fromString(cameraGrpc.getCameraId().getValue());

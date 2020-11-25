@@ -19,14 +19,15 @@ public final class CameraConverter {
         CameraBackGrpc cameraBackGrpc = CameraBackConverter.convert(camera.getCameraBack());
         CameraBodyGrpc cameraBodyGrpc = CameraBodyConverter.convert(camera.getCameraBody());
         CameraLensGrpc cameraLensGrpc = CameraLensConverter.convert(camera.getCameraLens());
+
         return CameraGrpc
                 .newBuilder()
                 .setCameraId(id)
-                .setInnerInfo(camera.getInnerInfo())
-                .setIsPacked(camera.getIsPacked())
-                .setIsFirmware(camera.getIsFirmware())
-                .setIsRejected(camera.getIsRejected())
-                .setIsWipedClean(camera.getIsWipedClean())
+                .setInnerInfo((camera.getInnerInfo() != null) ? camera.getInnerInfo() : "")
+                .setIsPacked((camera.getIsPacked() != null) ? camera.getIsPacked(): false)
+                .setIsFirmware((camera.getIsFirmware() != null) ? camera.getIsFirmware(): false)
+                .setIsRejected((camera.getIsRejected() != null) ? camera.getIsRejected(): false)
+                .setIsWipedClean((camera.getIsWipedClean() != null) ? camera.getIsWipedClean(): false)
                 .setCameraBack(cameraBackGrpc)
                 .setCameraBody(cameraBodyGrpc)
                 .setCameraLens(cameraLensGrpc)

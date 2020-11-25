@@ -24,5 +24,6 @@ public final class CameraBack {
         this.matrixCheck = cameraBackGrpc.getMatrixCheck();
         this.dimensions = new Dimensions(cameraBackGrpc.getDimensions());
         this.colorDepth = cameraBackGrpc.getColorDepth();
+        this.resolution = cameraBackGrpc.getResolution();
     }
 }

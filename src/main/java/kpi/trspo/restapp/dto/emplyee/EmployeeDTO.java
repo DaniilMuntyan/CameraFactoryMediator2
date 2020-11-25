@@ -6,6 +6,7 @@ import java.util.UUID;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @RequiredArgsConstructor
 public final class EmployeeDTO {
     private UUID id;
