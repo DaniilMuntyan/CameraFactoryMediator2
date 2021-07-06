@@ -1,0 +1,21 @@
+syntax = "proto3";
+option java_multiple_files = true;
+import "google/protobuf/empty.proto";
+import "entities/myUuid.proto";
+import "entities/dimensions.proto";
+import "entities/cameraParts.proto";
+package kpi.trspo.restapp;
+
+message AssembleLensRequest {
+  MyUuid collectorId = 1;
+  int32 focalLength = 2;
+  LensType lensType = 3;
+}
+
+message AssembleLensResponse {
+    CameraLensGrpc cameraLens = 1;
+}
+
+service AssembleLensService {
+  rpc assembleLens(AssembleLensRequest) returns (AssembleLensResponse);
+}
